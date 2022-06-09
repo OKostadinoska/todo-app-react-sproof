@@ -3,7 +3,7 @@
 
 # Getting Started with Create React App
 
-This project is deployed on Netlify: [https://todo-react-app-sproof.netlify.app](https://todo-react-app-sproof.netlify.app)
+
 
 ## Available Scripts
 
