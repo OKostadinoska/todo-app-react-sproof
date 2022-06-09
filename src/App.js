@@ -1,6 +1,8 @@
 import './App.css';
+import { Grid } from '@mui/material';
 import React, { useState } from 'react';
 import Form from './components/Form';
+import Todo from './components/Todo';
 import TodoList from './components/TodoList';
 
 function App() {
@@ -8,18 +10,31 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   return (
-    <div className="App">
-      <header>
-        <h1>Sproof Todo List </h1>
-      </header>
-      <Form
-        todos={todos}
-        setTodos={setTodos}
-        inputText={inputText}
-        setInputText={setInputText}
-      />
-      <TodoList todos={todos} setTodos={setTodos} />
-    </div>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      style={{ minHeight: '100vh' }}
+    >
+      <Grid item xs={3}>
+        <header>
+          <h1>Sproof Todo List </h1>
+        </header>
+      </Grid>
+      <Grid item xs={3}>
+        <Form
+          todos={todos}
+          setTodos={setTodos}
+          inputText={inputText}
+          setInputText={setInputText}
+        />
+      </Grid>
+      <Grid item xs={3}>
+        <TodoList todos={todos} setTodos={setTodos} />
+      </Grid>
+    </Grid>
   );
 }
 

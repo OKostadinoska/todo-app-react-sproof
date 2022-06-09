@@ -1,3 +1,13 @@
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import {
+  Button,
+  FormControl,
+  Input,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from '@mui/material';
 import React from 'react';
 
 const Form = ({ inputText, setInputText, todos, setTodos }) => {
@@ -27,24 +37,35 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
   };
 
   return (
-    <form>
-      <input
+    <>
+      <TextField
+        sx={{ minWidth: 300 }}
         value={inputText}
         onChange={inputTextHandler}
         type="text"
-        className="todo-input"
+        color="secondary"
+        label="Write Todo"
+        variant="outlined"
       />
-      <button onClick={submitHandler} className="todo-button" type="submit">
-        <i className="fas fa-plus-square"></i>
-      </button>
-      <div className="select">
-        <select name="todos" className="filter-todo">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
-        </select>
-      </div>
-    </form>
+      <Button onClick={submitHandler} type="submit" color="secondary">
+        <AddBoxIcon sx={{ fontSize: 50 }} />
+      </Button>
+
+      <FormControl>
+        <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
+        <Select
+          variant="outlined"
+          sx={{ minWidth: 120 }}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="Sort by"
+        >
+          <MenuItem value="all">All</MenuItem>
+          <MenuItem value="completed">Completed</MenuItem>
+          <MenuItem value="uncompleted">Uncompleted</MenuItem>
+        </Select>
+      </FormControl>
+    </>
   );
 };
 

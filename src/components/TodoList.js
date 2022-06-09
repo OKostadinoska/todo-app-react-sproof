@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React, { useEffect } from 'react';
 import Todo from './Todo';
 
@@ -12,11 +13,10 @@ const TodoList = ({ todos, setTodos }) => {
       setTodos([...allTodos]);
     }
     getTodos().catch((error) => console.log('get all todos error:' + error));
-  }, []);
+  }, [setTodos]);
 
   return (
-    <div className="todo-container">
-      <ul className="todo-list"></ul>
+    <>
       {todos.map((todo) => (
         <Todo
           key={todo.id}
@@ -26,7 +26,7 @@ const TodoList = ({ todos, setTodos }) => {
           setTodos={setTodos}
         />
       ))}
-    </div>
+    </>
   );
 };
 
