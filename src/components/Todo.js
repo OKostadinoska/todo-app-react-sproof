@@ -1,5 +1,5 @@
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import DeleteIcon from '@mui/icons-material/Delete';
+import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import { IconButton, ListItem, ListItemText } from '@mui/material';
 import React from 'react';
 
@@ -32,18 +32,17 @@ const Todo = ({ text, todo, todos, setTodos }) => {
   };
 
   return (
-    <ListItem sx={{ mr: 22 }}>
+    <ListItem sx={{ mr: 8 }}>
       <ListItemText
+        primary={text}
         className={`todo-item ${todo.completed ? 'completed' : ''}`}
-      >
-        {text}
-        <IconButton sx={{ ml: 11 }} onClick={completeHandler}>
-          <CheckCircleIcon color="success" />
-        </IconButton>
-        <IconButton onClick={deleteHandler}>
-          <DeleteIcon color="warning" />
-        </IconButton>
-      </ListItemText>
+      />
+      <IconButton onClick={completeHandler}>
+        <CheckBoxRoundedIcon color="success" />
+      </IconButton>
+      <IconButton sx={{ mr: 22 }} onClick={deleteHandler}>
+        <DeleteRoundedIcon color="warning" />
+      </IconButton>
     </ListItem>
   );
 };

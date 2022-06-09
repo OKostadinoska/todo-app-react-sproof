@@ -39,7 +39,7 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
   return (
     <>
       <TextField
-        sx={{ minWidth: 300 }}
+        sx={{ minWidth: 400 }}
         value={inputText}
         onChange={inputTextHandler}
         type="text"

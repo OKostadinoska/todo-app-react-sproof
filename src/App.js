@@ -16,11 +16,11 @@ function App() {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      style={{ minHeight: '100vh' }}
+      style={{ minHeight: '80vh' }}
     >
       <Grid item xs={3}>
         <header>
-          <h1>Sproof Todo List </h1>
+          <h1 className="header">Sproof Todo List </h1>
         </header>
       </Grid>
       <Grid item xs={3}>
