@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Todo from './Todo';
 
-const TodoList = ({ todos, setTodos, baseUrl }) => {
+const TodoList = ({ todos, setTodos, baseUrl, filteredTodos }) => {
   // getting all todos (GET)
   useEffect(() => {
     async function getTodos() {
@@ -14,7 +14,7 @@ const TodoList = ({ todos, setTodos, baseUrl }) => {
 
   return (
     <>
-      {todos.map((todo) => (
+      {filteredTodos.map((todo) => (
         <Todo
           key={todo.id}
           text={todo.text}

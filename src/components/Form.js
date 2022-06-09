@@ -9,7 +9,15 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-const Form = ({ inputText, setInputText, todos, setTodos, baseUrl }) => {
+const Form = ({
+  inputText,
+  setInputText,
+  todos,
+  setTodos,
+  baseUrl,
+  status,
+  setStatus,
+}) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
@@ -35,6 +43,10 @@ const Form = ({ inputText, setInputText, todos, setTodos, baseUrl }) => {
       .catch((error) => console.log('post todo error:' + error));
   };
 
+  const statusHandler = (e) => {
+    setStatus(e.target.value);
+  };
+
   return (
     <>
       <TextField
@@ -53,11 +65,14 @@ const Form = ({ inputText, setInputText, todos, setTodos, baseUrl }) => {
       <FormControl>
         <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
         <Select
+          onChange={statusHandler}
+          value={status}
           variant="outlined"
           sx={{ minWidth: 120 }}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          label="Sort by"
+          label="Sort
+          by"
         >
           <MenuItem value="all">All</MenuItem>
           <MenuItem value="completed">Completed</MenuItem>

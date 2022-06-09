@@ -1,13 +1,33 @@
 import './App.css';
 import { Grid } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 
 function App() {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState('all');
+  const [filteredTodos, setFilteredTodos] = useState([]);
   const baseUrl = 'http://localhost:8000';
+
+  useEffect(() => {
+    filterHandler();
+  }, [todos, status]);
+
+  const filterHandler = () => {
+    switch (status) {
+      case 'completed':
+        setFilteredTodos(todos.filter((todo) => todo.completed));
+        break;
+      case 'uncompleted':
+        setFilteredTodos(todos.filter((todo) => !todo.completed));
+        break;
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  };
 
   return (
     <Grid
@@ -30,10 +50,17 @@ function App() {
           inputText={inputText}
           setInputText={setInputText}
           baseUrl={baseUrl}
+          status={status}
+          setStatus={setStatus}
         />
       </Grid>
       <Grid item xs={3}>
-        <TodoList baseUrl={baseUrl} todos={todos} setTodos={setTodos} />
+        <TodoList
+          baseUrl={baseUrl}
+          todos={todos}
+          setTodos={setTodos}
+          filteredTodos={filteredTodos}
+        />
       </Grid>
     </Grid>
   );
