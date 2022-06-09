@@ -1,8 +1,8 @@
 {
   "todos": [
     {
-      "text": "Do the laundry",
-      "completed": true,
+      "text": "Create Sort Function",
+      "completed": false,
       "id": 1
     }
   ]

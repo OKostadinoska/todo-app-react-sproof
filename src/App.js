@@ -7,6 +7,7 @@ import TodoList from './components/TodoList';
 function App() {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
+  const baseUrl = 'http://localhost:8000';
 
   return (
     <Grid
@@ -28,10 +29,11 @@ function App() {
           setTodos={setTodos}
           inputText={inputText}
           setInputText={setInputText}
+          baseUrl={baseUrl}
         />
       </Grid>
       <Grid item xs={3}>
-        <TodoList todos={todos} setTodos={setTodos} />
+        <TodoList baseUrl={baseUrl} todos={todos} setTodos={setTodos} />
       </Grid>
     </Grid>
   );

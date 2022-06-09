@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
 import Todo from './Todo';
 
-const TodoList = ({ todos, setTodos }) => {
-  const baseUrl = 'http://localhost:8000';
-
+const TodoList = ({ todos, setTodos, baseUrl }) => {
   // getting all todos (GET)
   useEffect(() => {
     async function getTodos() {
@@ -12,7 +10,7 @@ const TodoList = ({ todos, setTodos }) => {
       setTodos([...allTodos]);
     }
     getTodos().catch((error) => console.log('get all todos error:' + error));
-  }, [setTodos]);
+  }, [setTodos, baseUrl]);
 
   return (
     <>
@@ -23,6 +21,7 @@ const TodoList = ({ todos, setTodos }) => {
           todos={todos}
           todo={todo}
           setTodos={setTodos}
+          baseUrl={baseUrl}
         />
       ))}
     </>

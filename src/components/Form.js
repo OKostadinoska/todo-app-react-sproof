@@ -9,9 +9,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-const Form = ({ inputText, setInputText, todos, setTodos }) => {
-  const baseUrl = 'http://localhost:8000';
-
+const Form = ({ inputText, setInputText, todos, setTodos, baseUrl }) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };

@@ -3,9 +3,7 @@ import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import { IconButton, ListItem, ListItemText } from '@mui/material';
 import React from 'react';
 
-const Todo = ({ text, todo, todos, setTodos }) => {
-  const baseUrl = 'http://localhost:8000';
-
+const Todo = ({ text, todo, todos, setTodos, baseUrl }) => {
   const deleteHandler = () => {
     fetch(`${baseUrl}/todos/${todo.id}`, {
       method: 'DELETE',
