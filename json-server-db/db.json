@@ -2,7 +2,7 @@
   "todos": [
     {
       "text": "Do the laundry",
-      "completed": false,
+      "completed": true,
       "id": 1
     }
   ]

@@ -4,15 +4,17 @@ import { IconButton, ListItem, ListItemText } from '@mui/material';
 import React from 'react';
 
 const Todo = ({ text, todo, todos, setTodos }) => {
+  const baseUrl = 'http://localhost:8000';
+
   const deleteHandler = () => {
-    fetch(`http://localhost:8000/todos/${todo.id}`, {
+    fetch(`${baseUrl}/todos/${todo.id}`, {
       method: 'DELETE',
     });
     setTodos(todos.filter((el) => el.id !== todo.id));
   };
 
   const completeHandler = () => {
-    fetch(`http://localhost:8000/todos/${todo.id}`, {
+    fetch(`${baseUrl}/todos/${todo.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

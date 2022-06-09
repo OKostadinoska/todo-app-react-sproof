@@ -10,6 +10,8 @@ import {
 import React from 'react';
 
 const Form = ({ inputText, setInputText, todos, setTodos }) => {
+  const baseUrl = 'http://localhost:8000';
+
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
@@ -17,7 +19,7 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:8000/todos', {
+    fetch(`${baseUrl}/todos`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
