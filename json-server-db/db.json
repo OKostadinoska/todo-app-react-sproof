@@ -1,8 +1,8 @@
 {
   "todos": [
     {
-      "text": "ffffffffffffffffffff",
-      "completed": true,
+      "text": "Do the laundry",
+      "completed": false,
       "id": 1
     }
   ]

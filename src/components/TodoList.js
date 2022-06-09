@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import React, { useEffect } from 'react';
 import Todo from './Todo';
 
